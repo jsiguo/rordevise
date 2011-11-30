@@ -1,0 +1,6 @@
+class HomeController < ApplicationController
+before_filter :authenticate_user!  #添加这一句  
+def index
+  end
+
+end

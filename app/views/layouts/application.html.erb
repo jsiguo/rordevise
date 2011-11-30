@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/stylesheets/style.css" media="screen" />
+  <title>myblog</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+<div class="page_wrap clearfix">
+  <div class="top"></div>
+  <div class="header">
+    <h1>ultrawise blog空间</h1>
+    ultrawise致力于教育和软件行业,教育中软件第一软件中教育第一..... <img src="/images/tongue.gif" alt="" width="20" height="20" /></div>
+  <div class="container clearfix">
+    <div class="left_nav" id="nav">
+      <div class="left_nav_top"></div>
+      <ul>
+        <li><a href="#">[1] 返回首页</a></li>
+        <li><a href="#">[2] 我的博客</a></li>
+        <li><a href="#">[3] 发表随笔</a></li>
+        <li><a href="#">[4] 嘻哈相册</a></li>
+        <li><a href="#">[5] 标签归类</a></li>
+        <li><a href="#">[6] 个人档案</a></li>
+        <li><a href="#">[7] 亲朋好友</a></li>
+        <li><a href="#">[8] 看看微博</a></li>
+      </ul>
+      <div class="left_nav_bottom"></div>
+    </div>
+  <%= yield %>
+  </div>
+  <div class="bottom clearfix">
+    <div class="footer clearfix"> Copyright, 2010 gsm1022.com &nbsp;&#8226;&nbsp; Design
+      by somboy </div>
+  </div>
+</div>
+<p class="notice"><%=notice%></p>
+<p class="alert"><%=alert%></p>
+<div id="user_nav" style=" position:absolute; top:10px; right:100px;">
+  <% if user_signed_in? %>
+    Signed in as <%= current_user.email %>. Not you?
+    <%= link_to "Sign out", destroy_user_session_path %>
+  <% else %>
+    <%= link_to "Sign up", new_user_registration_path %> or
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<p>
+  <b>Category:</b>
+   <%=case @post.category
+                         when 0
+                                     "日志"
+                         when 1
+                                    "技术"
+                         when 2
+                                     "转载"
+                              else "无"
+        end %>
+</p>
+<p>
+  <b>createdtime:</b>
+  <%= @post.created_at %>
+</p>
+
+<p>
+  <b>comments:</b>
+  表没关联起来 哎...
+  <!--post.comments.user.username-->
+</p>
+
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

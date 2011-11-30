@@ -1,0 +1,48 @@
+<%= form_for(@profile) do |f| %>
+  <% if @profile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="field">
+    <%= f.label :username %><br />
+    <%= f.label :username%>
+      <%=f.label:current_user%>
+  </div>
+
+        <div class="field">
+      <select name="profile[user_id]">
+          <% for user in User.find(:all) %>
+              <option value="1"><%=user.username%></option>
+          <% end %>
+        </select>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :gender %><br />
+     <%= f.select(:gender,options_for_select(["男","女"]))%>
+  </div>
+  <div class="field">
+    <%= f.label :birth_year %><br />
+    <%= f.number_field :birth_year %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_month %><br />
+    <%= f.number_field :birth_month %>
+  </div>
+  <div class="field">
+    <%= f.label :birth_day %><br />
+    <%= f.number_field :birth_day %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
